@@ -1,0 +1,129 @@
+DEEP LEARNING PRACTICAL EXPERIMENTS FOR WINDOWS
+
+================================================================================
+EXPERIMENT 1: STUDY OF DEEP LEARNING PACKAGES
+================================================================================
+
+Aim:
+Study and installation of following Deep learning Packages: TensorFlow, Keras, Theano, and PyTorch.
+
+Theory:
+
+In the field of deep learning, various frameworks and libraries have been developed to facilitate the building and training of neural networks. The primary packages used are TensorFlow, Keras, Theano, and PyTorch, each offering distinct capabilities and functionalities for deep learning applications on different operating systems.
+
+Installation of TensorFlow on Windows:
+To install TensorFlow on Windows, we first establish the Python development environment. The process begins by downloading Python from the official Python website. It is recommended to use Python 3.7 or higher. After downloading and installing Python, we open the Command Prompt and verify the installation by typing "python --version" and "pip --version." Next, we create a virtual environment using the command "python -m venv tensorflow_env." This creates an isolated environment for our TensorFlow installation. We then activate this virtual environment by running "tensorflow_env\Scripts\activate" from the command prompt. After activation, we upgrade pip using "pip install --upgrade pip." Finally, we install TensorFlow using "pip install tensorflow." The installation can be verified by importing TensorFlow in Python.
+
+Installation of Keras on Windows:
+Keras requires Python version 3.5 or above as a prerequisite. The installation process on Windows involves activating the virtual environment and then executing several commands in sequence. First, we install and update Python3 and Pip. Second, we upgrade setuptools with "pip install --upgrade setuptools." Third, we install TensorFlow as a prerequisite dependency. Finally, we install Keras using "pip install keras." The installation can be verified using "pip show keras" command to display package information.
+
+Installation of Theano on Windows:
+Theano is a Python library designed for mathematical expression optimization involving arrays and multi-dimensional computations. The installation process on Windows requires first installing Python3 and the pip module. Then, we install Theano using "pip install theano" command. Installation verification can be performed using "pip show theano" to confirm successful package installation.
+
+Installation of PyTorch on Windows:
+PyTorch requires Python 3.7 or higher on Windows systems. Before installation, we verify the Python version using "python --version" and pip version using "pip --version." PyTorch is installed along with torchvision and torchaudio components using pip. The command typically looks like "pip install torch torchvision torchaudio." PyTorch can be installed from the official PyTorch website where it provides platform-specific installation commands.
+
+Supporting Libraries and Dependencies:
+All these deep learning packages depend on essential supporting libraries. NumPy is a Python library used for numerical computing and array operations. Pandas is a powerful data analysis and manipulation tool built on top of Python. Scikit-learn provides machine learning utilities including classification, regression, and clustering tools. These can be installed using pip commands such as "pip install numpy," "pip install pandas," and "pip install scikit-learn."
+
+Test Programs and Verification:
+Each package includes test programs for verification. TensorFlow and Keras can successfully load the MNIST dataset. Theano can perform basic tensor operations and automatic differentiation. PyTorch outputs version information and successfully imports core modules. Running simple Python scripts that import and use these packages confirms proper installation.
+
+Conclusion:
+TensorFlow, PyTorch, Keras and Theano all these packages are installed and ready for Deep learning applications. As per application domain and dataset we can choose the appropriate package and build required type of Neural Network.
+
+================================================================================
+EXPERIMENT 2: IMPLEMENTING FEEDFORWARD NEURAL NETWORK WITH KERAS AND TENSORFLOW
+================================================================================
+
+Aim:
+Understand how to use TensorFlow Eager and Keras Layers to build a neural network architecture. Train a neural network (using Keras) to obtain > 90% accuracy on MNIST dataset. Identify digits from images and research techniques to improve model generalization.
+
+Theory:
+
+Deep learning has revolutionized the world of machine learning as more and more practitioners have adopted deep learning networks to solve real-world problems. The first step toward using deep learning networks is understanding the working of a simple feedforward neural network. We can build our first neural network model using Keras running on top of the TensorFlow library. TensorFlow is an open-source platform for machine learning. Keras is the high-level application programming interface of TensorFlow. Using Keras, we can rapidly develop a prototype system and test it.
+
+The feedforward neural network consists of multiple layers where data passes from the input layer through hidden layers to the output layer. Each layer performs computations on the input data to extract and learn features. The MNIST dataset is used, which consists of 28x28 images of handwritten digits along with their corresponding labels. The dataset contains 60,000 training images and 10,000 test images. The neural network architecture for this task includes a Flatten layer that transforms multidimensional input tensors into one-dimensional vectors. The Flatten layer is necessary to create a vectorized version of each image for input to subsequent layers.
+
+The Dense layer is a fully connected feedforward layer where every neuron connects to every neuron in the previous layer. This layer computes a weighted sum of inputs, adds a bias, and applies an activation function. In this implementation, the ReLU activation function is used in hidden layers, which sets negative values to zero while keeping positive values unchanged. The output layer uses the softmax activation function, which normalizes outputs to produce a probability distribution where values sum to one. This ensures the outputs represent valid classification probabilities for each digit.
+
+The model is created using Keras's Sequential API, which allows layers to be stacked sequentially. The compilation process specifies the optimizer algorithm, loss function, and performance metrics. For multiclass classification, categorical cross-entropy loss is used with the SGD or Adam optimizer. The training process involves loading the MNIST dataset, normalizing pixel values from the range 0-255 to 0-1, and fitting the model to the training data over multiple epochs. During training, the model adjusts weights and biases to minimize the loss function through backpropagation.
+
+The training history records loss and accuracy metrics for both training and validation datasets. Model evaluation employs the evaluate() method to compute overall accuracy on test data. The predict() method can be used to generate predictions for individual images. Proper data normalization and architecture design are essential for achieving good accuracy on the MNIST dataset.
+
+Conclusion:
+With above code we can see that throughout the epochs, our model accuracy increases and loss decreases that is good since our model gains confidence with our prediction. The two loss (loss and val_loss) are decreasing and the accuracy (accuracy and val_accuracy) increasing. The val_accuracy is the measure of how good the model is predicting so, it is observed that the model is well trained after 10 epochs.
+
+================================================================================
+EXPERIMENT 3: IMAGE CLASSIFICATION USING CONVOLUTIONAL NEURAL NETWORKS
+================================================================================
+
+Aim:
+Build and train an image classification model using CNNs on MNIST. Divide the model into four stages: loading and preprocessing image data, defining model architecture, training the model, and estimating performance. Achieve > 90% accuracy on image dataset.
+
+Theory:
+
+Deep learning has been proven to be a very powerful tool due to its ability to handle huge amounts of data. The use of hidden layers exceeds traditional techniques, especially for pattern recognition. Convolutional Neural Networks (CNNs) are among the most popular deep neural networks used for image recognition and processing. They are specifically designed for processing visual data and consistently achieve top performance in image classification tasks. CNNs can identify various visual elements such as faces, objects, street signs, and other aspects of visual data.
+
+The efficacy of CNNs in image recognition is one of the main reasons the world recognizes the power of deep learning. CNNs are good at building position and rotation-invariant features from raw image data. The structure of image data allows us to organize neurons in a three-dimensional structure with width, height, and depth attributes corresponding to image pixels and color channels. In traditional multilayer neural networks, every neuron connects to every neuron in the next layer. In contrast, in CNNs, neurons are arranged in three dimensions to match input volumes, and neurons connect only to small regions of neurons in the previous layer.
+
+The CNN architecture consists of three major groups. The input layer accepts three-dimensional input with spatial dimensions representing image width and height, and depth representing color channels. The feature-extraction layers employ a repeating pattern of convolutional layers, ReLU activation functions, and pooling layers. Convolutional layers transform input data using patches of locally connecting neurons from the previous layer. Pooling layers progressively reduce spatial dimensions while preserving important features. The classification layers contain fully connected networks producing class probabilities from extracted features.
+
+For the MNIST dataset, images are 28x28 pixels with pixel values ranging from 0 to 255. Preprocessing involves normalizing pixel values to the 0-1 range by dividing by 255. The data must be reshaped to include the channel dimension, as computer vision typically uses four dimensions for representing image batches. The model is constructed using Keras Sequential API with convolutional layers configured with appropriate filters and kernel sizes, followed by pooling operations, flattening operations, and fully connected dense layers. The model compiles with the SGD optimizer and sparse categorical cross-entropy loss function.
+
+Training proceeds through multiple epochs with batch processing, monitoring both training and validation metrics. The model learns to detect simple features like edges, then combines them to detect complex features like shapes, and eventually can identify entire digits. After 10 epochs of training, the model should achieve high accuracy on the MNIST dataset.
+
+Conclusion:
+Thus, we have implemented the Image classification model using CNN. With above code we can see that sufficient accuracy has been met. Throughout the epochs, our model accuracy increases and loss decreases that is good since our model gains confidence with our prediction. The loss is decreasing and the accuracy is increasing with every epoch. The test accuracy is the measure of how good the model is predicting so, it is observed that the model is well trained after 10 epochs.
+
+================================================================================
+EXPERIMENT 4: ANOMALY DETECTION USING AUTOENCODERS
+================================================================================
+
+Aim:
+Use Autoencoder to implement anomaly detection. Build the model by importing required libraries, accessing the dataset, using encoder to convert data into latent representation, using decoder to convert back to original input, and compiling models with optimizer, loss, and evaluation metrics.
+
+Theory:
+
+Autoencoders are generative unsupervised deep learning algorithms used for reconstructing high-dimensional input data using a neural network with a narrow bottleneck layer in the middle. This bottleneck layer contains the latent representation of the input data. Autoencoders are particularly useful for anomaly detection in imbalanced datasets containing many normal examples and only a few anomalies.
+
+The fundamental principle of autoencoder-based anomaly detection is training the network exclusively on normal or good data. The network learns to minimize reconstruction error on this normal data, developing the ability to reconstruct similar normal instances accurately. When anomalous data is presented to the trained autoencoder, it produces significantly higher reconstruction errors because the model has not learned patterns specific to anomalies.
+
+The architecture of an autoencoder consists of two primary components: the encoder and the decoder. The encoder network transforms input data into a compressed latent representation containing lower-dimensional features. The decoder network reconstructs the original input from this latent representation. The bottleneck or latent layer constrains information flow, forcing the network to learn efficient, compact representations. During training, the autoencoder optimizes the reconstruction loss, which measures the difference between input and reconstructed output.
+
+Data preprocessing is essential for autoencoder implementation on Windows systems. When datasets contain features with different scales, standardization is necessary. StandardScaler can be applied selectively to specific columns while other features are normalized to the 0-1 range. The target variable distinguishes normal observations from anomalies using binary labels, where 0 represents anomalies and 1 represents normal instances. Training data is prepared using only normal observations.
+
+Training parameters must be configured appropriately. The autoencoder architecture includes encoder layers progressively reducing dimensions, followed by decoder layers progressively reconstructing original dimensions. The model compiles with categorical cross-entropy loss and appropriate optimizers like Adam or SGD. During training, the model learns to minimize reconstruction error on normal data.
+
+Anomaly detection occurs by computing reconstruction loss on test data and calculating mean squared error between original and reconstructed data. Data points with reconstruction loss exceeding a predetermined threshold are classified as anomalies. Visualizing test data points and their reconstruction errors assists in identifying appropriate threshold values. Performance evaluation employs standard classification metrics including accuracy, precision, recall, and F1-score.
+
+Conclusion:
+Autoencoders can be used as an anomaly detection algorithm when we have an unbalanced dataset where we have a lot of good examples and only a few anomalies. Autoencoders are trained to minimize reconstruction error. When we train the autoencoders on normal data or good data, we can hypothesize that the anomalies will have higher reconstruction errors than the good or normal data.
+
+================================================================================
+EXPERIMENT 5: IMPLEMENTING THE CONTINUOUS BAG OF WORDS (CBOW) MODEL
+================================================================================
+
+Aim:
+Implement the Continuous Bag of Words (CBOW) Model. Stages: Data preparation, Generate training data, Train model, and Output production.
+
+Theory:
+
+Natural Language Processing is a crucial subfield of artificial intelligence focused on enabling computers to understand, interpret, and generate human language. Word embeddings form a fundamental component of modern NLP, converting textual words into numerical vectors that capture semantic and syntactic relationships between words. The Continuous Bag of Words model constitutes one of two primary word embedding techniques introduced as part of the Word2Vec framework.
+
+The CBOW model predicts a target word from context words surrounding it within a specified window. The model utilizes a simple neural network architecture with an input layer, embedding layer, and output layer. During training, context words are projected into vector space through embedding layers, and their vectors are combined to predict the central target word. This architecture enables efficient learning of meaningful representations without requiring labeled training data.
+
+The CBOW implementation begins with data preparation. Input data typically consists of English text paragraphs containing five to ten sentences. Text preprocessing involves cleaning and tokenizing data to create sequences of word tokens. The Gensim library provides built-in tokenization capabilities for this process. Text data undergoes tokenization where each word becomes a discrete token. The tokenizer is fitted to the data, and vocabulary statistics are computed including total word count and sentence count.
+
+Tokenization converts raw text into discrete word units suitable for model training. The tokenizer creates a word index mapping each unique word to an integer value. Window size represents a critical hyperparameter determining how many surrounding context words inform target word prediction. For a given window size, context words extend symmetrically in both directions from the target word. For instance, with a window size of two, a target word at position n includes context words at positions n-2, n-1, n+1, and n+2.
+
+Training data generation produces pairs of context word sequences and corresponding target words. Context words are collected for each target word based on window size boundaries. The context sequences are padded to maintain uniform length across all training examples. Target words are converted to categorical one-hot encoded representations. The neural network model employs Dense layers for fully connected operations, Embedding layers for converting word indices to dense vectors, and Lambda layers for custom operations.
+
+The model architecture includes an embedding layer transforming input words into vector representations, hidden layers with appropriate dimensions, and output layers with softmax activation. The model trains on generated context-target pairs using categorical cross-entropy loss and Adam optimizer. After training completes, weights from the embedding layer are extracted representing learned word vectors. These vectors are written to a text file in Word2Vec format that can be loaded using Gensim.
+
+Conclusion:
+In this experiment, we saw what a CBOW model is and how it works. We also implemented the model on a custom dataset and got good output. We learnt what word embeddings are and how CBOW is useful. These can be used for text recognition, speech to text conversion etc.
+
+================================================================================
+END OF ALL FIVE EXPERIMENTS
+================================================================================
